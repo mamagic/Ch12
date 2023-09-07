@@ -3,6 +3,10 @@ security:
     name: buzz
     password: infinity
 
+logging:
+  level:
+    org.springframework.security: DEBUG
+
 taco:
   orders:
     pageSize: 10
