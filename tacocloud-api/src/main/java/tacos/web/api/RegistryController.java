@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import reactor.core.publisher.Mono;
 import tacos.User;
 import tacos.data.UserRepository;
 import tacos.security.RegistrationForm;
@@ -22,7 +23,7 @@ public class RegistryController {
 	PasswordEncoder passwordEncoder;
 
 	@PostMapping
-	public User registry(@RequestBody User user) {
+	public Mono<User> registry(@RequestBody User user) {
 		return userRepository.save(new RegistrationForm().toUser(passwordEncoder, user));
 	}
 }

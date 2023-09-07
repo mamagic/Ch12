@@ -16,13 +16,16 @@ spring:
   data:
     mongodb:
       host: localhost
-      port: 27018
-      username:
-      password:
+      port: 27017
+      authentication-database: admin
+      username: ryu
+      password: 1234
+      database: mongo
     rest:
       base-path: /api
 
-
+server:
+  port: 8080
 #  datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #    url: "jdbc:mysql://localhost:3306/tacocloud?autoReconnect=true&useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&tinyInt1isBit=false"

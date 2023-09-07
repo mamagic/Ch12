@@ -16,7 +16,6 @@ public class UserRepositoryUserDetailsService
 
   private UserRepository userRepo;
 
-  @Autowired
   public UserRepositoryUserDetailsService(UserRepository userRepo) {
     this.userRepo = userRepo;
   }
@@ -26,7 +25,7 @@ public class UserRepositoryUserDetailsService
       throws UsernameNotFoundException {
     System.out.println("-------------------------------");
     System.out.println("username: " + username);
-    User user = userRepo.findByUsername(username);
+    User user = userRepo.findByUsername(username).block();
     if (user != null) {
       return user;
     }

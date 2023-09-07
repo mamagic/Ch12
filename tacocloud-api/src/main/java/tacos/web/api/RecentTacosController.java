@@ -38,19 +38,19 @@ public class RecentTacosController {
 	private final TacoResourceAssembler assembler;
 
 	@GetMapping(path="/tacos/recent", produces="application/hal+json")
-	public Mono<ResponseEntity<CollectionModel<TacoResource>>> recentTacos() {
+	public Mono<ResponseEntity<CollectionModel<TacoResources>>> recentTacos() {
 		return tacoRepo.findAll()
 				.take(12)
 				.collectList()
 				.map(tacos -> {
-					Collection<EntityModel<TacoResource>> tacoResources =
+					Collection<EntityModel<TacoResources>> tacoResources =
 							new TacoResourceAssembler().toCollectionModel(tacos).getContent();
 
-					List<TacoResource> tacoResourceList = tacoResources.stream()
+					List<TacoResources> tacoResourceList = tacoResources.stream()
 							.map(EntityModel::getContent)
 							.collect(Collectors.toList());
 
-					CollectionModel<TacoResource> recentResources =
+					CollectionModel<TacoResources> recentResources =
 							CollectionModel.of(tacoResourceList);
 
 					recentResources.add(

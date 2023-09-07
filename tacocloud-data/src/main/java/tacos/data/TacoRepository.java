@@ -10,5 +10,5 @@ import tacos.Taco;
 
 //@CrossOrigin(origins="*") // 추가됨
 public interface TacoRepository 
-         extends ReactiveCrudRepository<Taco, Long> {
+         extends ReactiveCrudRepository<Taco, String> {
 }

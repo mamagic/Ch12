@@ -31,10 +31,12 @@
 		</dependency>
 
 		<!-- Necessary Boot starters -->
+
 		<dependency>
 			<groupId>org.springframework.kafka</groupId>
 			<artifactId>spring-kafka</artifactId>
 		</dependency>
+
 
 		<!-- Lombok -->
 		<dependency>
